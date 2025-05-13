@@ -1,0 +1,136 @@
+{
+  "questions": [
+    {
+      "text": "What is the capital of France?",
+      "options": [
+        { "id": "a", "text": "Paris" },
+        { "id": "b", "text": "London" },
+        { "id": "c", "text": "Berlin" },
+        { "id": "d", "text": "Madrid" }
+      ],
+      "correctAnswers": ["a"],
+      "reward": 500
+    },
+    {
+      "text": "What does CPU stand for?",
+      "options": [
+        { "id": "a", "text": "Central Processing Unit" },
+        { "id": "b", "text": "Computer Personal Unit" },
+        { "id": "c", "text": "Central Process Unit" },
+        { "id": "d", "text": "Central Processor Unit" }
+      ],
+      "correctAnswers": ["a"],
+      "reward": 1000
+    },
+    {
+      "text": "What year was the first iPhone released?",
+      "options": [
+        { "id": "a", "text": "2005" },
+        { "id": "b", "text": "2006" },
+        { "id": "c", "text": "2007" },
+        { "id": "d", "text": "2008" }
+      ],
+      "correctAnswers": ["c"],
+      "reward": 2000
+    },
+    {
+      "text": "Which company developed the Windows operating system?",
+      "options": [
+        { "id": "a", "text": "Apple" },
+        { "id": "b", "text": "Microsoft" },
+        { "id": "c", "text": "Google" },
+        { "id": "d", "text": "IBM" }
+      ],
+      "correctAnswers": ["b"],
+      "reward": 4000
+    },
+    {
+      "text": "Which of these are JavaScript frameworks?",
+      "options": [
+        { "id": "a", "text": "Django" },
+        { "id": "b", "text": "Vue" },
+        { "id": "c", "text": "React" },
+        { "id": "d", "text": "Angular" }
+      ],
+      "correctAnswers": ["b", "c", "d"],
+      "reward": 8000
+    },
+    {
+      "text": "What does HTTP stand for?",
+      "options": [
+        { "id": "a", "text": "Hypertext Transfer Protocol" },
+        { "id": "b", "text": "Hypertext Transit Protocol" },
+        { "id": "c", "text": "Hypertext Terminal Protocol" },
+        { "id": "d", "text": "Hypertext Transfer Procedure" }
+      ],
+      "correctAnswers": ["a"],
+      "reward": 16000
+    },
+    {
+      "text": "Which data structure uses LIFO (Last In First Out)?",
+      "options": [
+        { "id": "a", "text": "Queue" },
+        { "id": "b", "text": "Stack" },
+        { "id": "c", "text": "Linked List" },
+        { "id": "d", "text": "Tree" }
+      ],
+      "correctAnswers": ["b"],
+      "reward": 32000
+    },
+    {
+      "text": "Which of these are NOT database management systems?",
+      "options": [
+        { "id": "a", "text": "MongoDB" },
+        { "id": "b", "text": "Apache" },
+        { "id": "c", "text": "PostgreSQL" },
+        { "id": "d", "text": "Nginx" }
+      ],
+      "correctAnswers": ["b", "d"],
+      "reward": 64000
+    },
+    {
+      "text": "What is the largest planet in our solar system?",
+      "options": [
+        { "id": "a", "text": "Earth" },
+        { "id": "b", "text": "Mars" },
+        { "id": "c", "text": "Jupiter" },
+        { "id": "d", "text": "Saturn" }
+      ],
+      "correctAnswers": ["c"],
+      "reward": 125000
+    },
+    {
+      "text": "Which elements have the chemical symbols 'O' and 'H'?",
+      "options": [
+        { "id": "a", "text": "Gold and Silver" },
+        { "id": "b", "text": "Oxygen and Hydrogen" },
+        { "id": "c", "text": "Silver and Hydrogen" },
+        { "id": "d", "text": "Oxygen and Helium" }
+      ],
+      "correctAnswers": ["b"],
+      "reward": 250000
+    },
+    {
+      "text": "Which encryption algorithms use public and private key pairs?",
+      "options": [
+        { "id": "a", "text": "AES" },
+        { "id": "b", "text": "RSA" },
+        { "id": "c", "text": "DES" },
+        { "id": "d", "text": "DSA" }
+      ],
+      "correctAnswers": ["b", "d"],
+      "reward": 500000
+    },
+    {
+      "text": "Who is considered the father of computer science?",
+      "options": [
+        { "id": "a", "text": "Alan Turing" },
+        { "id": "b", "text": "John von Neumann" },
+        { "id": "c", "text": "Charles Babbage" },
+        { "id": "d", "text": "Ada Lovelace" }
+      ],
+      "correctAnswers": ["a"],
+      "reward": 1000000
+    }
+  ]
+}

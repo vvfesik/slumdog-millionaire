@@ -1,0 +1,14 @@
+.headline {
+  font-size: var(--text-mobile-headline);
+  line-height: var(--line-height-mobile-headline);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--gap-medium);
+}
+
+@media (min-width: 768px) {
+  .headline {
+    font-size: var(--text-desktop-headline);
+    line-height: var(--line-height-desktop-headline);
+  }
+}

@@ -1,0 +1,27 @@
+.step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+}
+
+.step > svg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.reward {
+  z-index: 10;
+  cursor: default;
+}
+
+.active {
+  color: var(--color-primary);
+}
+
+.completed {
+  color: var(--color-border);
+}
