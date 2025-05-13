@@ -61,6 +61,17 @@ npm run lint
 npm run lint:fix
 ```
 
+### Design Tokens
+
+The project uses Style Dictionary to manage design tokens and generate consistent design assets across the platform. Tokens are defined in JSON format and exported from Figma using the [Design Tokens plugin](https://github.com/lukasoppermann/design-tokens).
+
+```bash
+# Generate css variables from design tokens
+npm run generate:tokens
+```
+
+This command uses the configuration in `style-dictionary.config.json` to transform design tokens from source format into various platform-specific formats.
+
 ### Building for Production
 
 ```bash

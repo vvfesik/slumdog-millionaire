@@ -1,0 +1,87 @@
+@import './_variables.css';
+@import './grid.css';
+
+:root {
+  --base-scale: 16; /* scale for the generated rem-based token values */
+
+  /* semantic tokens */
+  --background: var(--color-white-100);
+  --foreground: var(--color-black-100);
+  --color-primary: var(--color-orange-100);
+  --color-primary-dark: var(--color-orange-120);
+  --color-primary-light: var(--color-orange-80);
+  --color-primary-bg: var(--color-orange-5);
+  --color-success: var(--color-green-100);
+  --color-success-bg: var(--color-green-5);
+  --color-error: var(--color-red-100);
+  --color-error-bg: var(--color-red-5);
+  --color-text: var(--color-black-100);
+  --color-border: var(--color-black-40);
+  --color-bg-light: var(--color-black-5);
+  --button-primary-bg: var(--color-primary);
+  --button-primary-hover: var(--color-primary-light);
+  --button-primary-pressed: var(--color-primary-dark);
+  --button-primary-text: var(--color-white-100);
+  --button-disabled-bg: var(--color-black-40);
+  --button-disabled-text: var(--color-white-100);
+  --text-mobile-headline: calc(var(--typography-mobile-headline-font-size) / var(--base-scale));
+  --text-mobile-question: calc(var(--typography-mobile-question-font-size) / var(--base-scale));
+  --text-mobile-option: calc(var(--typography-mobile-option-font-size) / var(--base-scale));
+  --text-mobile-button: calc(var(--typography-mobile-button-font-size) / var(--base-scale));
+  --text-desktop-headline: calc(var(--typography-desktop-headline-font-size) / var(--base-scale));
+  --text-desktop-question: calc(var(--typography-desktop-question-font-size) / var(--base-scale));
+  --text-desktop-option: calc(var(--typography-desktop-option-font-size) / var(--base-scale));
+  --text-desktop-button: calc(var(--typography-desktop-button-font-size) / var(--base-scale));
+  --line-height-mobile-headline: calc(var(--typography-mobile-headline-line-height) / var(--base-scale));
+  --line-height-mobile-question: calc(var(--typography-mobile-question-line-height) / var(--base-scale));
+  --line-height-desktop-headline: calc(var(--typography-desktop-headline-line-height) / var(--base-scale));
+  --line-height-desktop-question: calc(var(--typography-desktop-question-line-height) / var(--base-scale));
+  --font-weight-normal: 400;
+  --font-weight-bold: 600;
+  --gap-xsmall: 4px;
+  --gap-small: 8px;
+  --gap-medium: 16px;
+  --gap-large: 24px;
+  --gap-xlarge: 32px;
+  --gap-xxlarge: 64px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-pill: 9999px;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  display: flex;
+  min-height: 100svh;
+  padding: 0 var(--gap-medium);
+}
+
+.full-width {
+  width: 100%;
+}

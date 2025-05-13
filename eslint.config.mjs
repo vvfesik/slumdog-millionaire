@@ -12,7 +12,7 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   {
-    files: ["src/**/*.ts", "src/**/*.tsx"],
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -29,6 +29,13 @@ const eslintConfig = [
     'next/core-web-vitals',
     'next/typescript',
   ),
+  {
+    files: ["src/**/*.{js,jsx,ts,tsx}"],
+    rules: {
+      "react/require-default-props": "off",
+      "@next/next/no-img-element": "off",
+    },
+  },
 ];
 
 export default eslintConfig;
