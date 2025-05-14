@@ -1,4 +1,4 @@
-import styles from '@/components/Headline.module.css';
+import styles from '@/components/ui/Headline.module.css';
 
 interface HeadlineProps {
   children: React.ReactNode;

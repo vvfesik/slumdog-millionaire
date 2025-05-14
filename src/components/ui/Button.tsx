@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import styles from '@/components/Button.module.css';
+import styles from '@/components/ui/Button.module.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;

@@ -13,6 +13,7 @@ export function Result() {
   const router = useRouter();
   const reset = useGameStore((s) => s.reset);
   const storeReward = useGameStore((s) => s.reward);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const reward = useMemo(() => storeReward, []);
 
   const restartTheGame = () => {

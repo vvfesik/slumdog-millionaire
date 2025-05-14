@@ -12,8 +12,8 @@
   transition: transform 0.1s, all 0.2s;
   user-select: none;
   background: transparent;
-  width: 320px;
-  height: 56px;
+  width: var(--mobile-option-button-width);
+  height: var(--mobile-option-button-height);
 }
 
 .button svg {
@@ -46,8 +46,8 @@
   .button {
     font-size: var(--text-desktop-button);
     padding: var(--gap-medium) var(--gap-large);
-    width: 405px;
-    height: 72px;
+    width: var(--desktop-option-button-width);
+    height: var(--desktop-option-button-height);
   }
 
   .text {

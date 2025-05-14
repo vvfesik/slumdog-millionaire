@@ -48,6 +48,10 @@
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-pill: 9999px;
+  --desktop-option-button-width: 405px;
+  --desktop-option-button-height: 72px;
+  --mobile-option-button-width: 320px;
+  --mobile-option-button-height: 56px;
 }
 
 html,

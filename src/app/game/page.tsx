@@ -1,4 +1,4 @@
-import Game from '@/components/Game';
+import { Game } from '@/components/Game';
 import { getRewards } from '@/lib/actions';
 
 const baseStyles = {

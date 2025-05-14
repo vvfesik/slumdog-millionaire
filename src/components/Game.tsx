@@ -5,15 +5,19 @@ import { useRouter } from 'next/navigation';
 import { QuestionSection } from '@/components/QuestionSection';
 import { RewardLadder } from '@/components/RewardLadder';
 import { Grid, GridColumn } from '@/components/ui/Grid';
+import { CloseIcon } from '@/components/ui/CloseIcon';
+import { MenuIcon } from '@/components/ui/MenuIcon';
 import { getQuestion, submitAnswer } from '@/lib/actions';
 import { useGameStore } from '@/store/gameStore';
 import { Question } from '@/lib/definitions';
+import styles from '@/components/Game.module.css';
 
 interface Props {
   steps: number[];
 }
 
 export function Game({ steps = [] }: Props) {
+  const [isRewardsMenuVisible, setRewardsMenuVisible] = useState(false);
   const currentIndex = useGameStore((s) => s.currentIndex);
   const isFinished = useGameStore((s) => s.isFinished);
   const next = useGameStore((s) => s.next);
@@ -69,22 +73,32 @@ export function Game({ steps = [] }: Props) {
   };
 
   return (
-    <Grid smCols={4}>
-      <GridColumn span={3}>
-        <QuestionSection
-          question={question?.text}
-          options={question?.options}
-          requiredCount={question?.requiredCount}
-          onAnswer={handleAnswer}
-          correct={correct}
-          incorrect={incorrect}
-          selected={selected}
-        />
-      </GridColumn>
-      <GridColumn>
-        <RewardLadder currentStepIndex={currentIndex} steps={steps} />
-      </GridColumn>
-    </Grid>
+    <>
+      <Grid smCols={4}>
+        <GridColumn span={3}>
+          <QuestionSection
+            question={question?.text}
+            options={question?.options}
+            requiredCount={question?.requiredCount}
+            onAnswer={handleAnswer}
+            correct={correct}
+            incorrect={incorrect}
+            selected={selected}
+          />
+        </GridColumn>
+        <GridColumn className={`${styles.rewards} ${isRewardsMenuVisible ? styles.visible : styles.hidden}`}>
+          <RewardLadder currentStepIndex={currentIndex} steps={steps} />
+        </GridColumn>
+      </Grid>
+      <button type="button" className={styles.rewardsMenuButton} onClick={() => setRewardsMenuVisible((prev) => !prev)}>
+        {isRewardsMenuVisible ? (
+          <CloseIcon />
+        ) : (
+          <MenuIcon />
+        )}
+
+      </button>
+    </>
   );
 }
 export default Game;
