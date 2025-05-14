@@ -7,15 +7,10 @@ import { RewardLadder } from '@/components/RewardLadder';
 import { Grid, GridColumn } from '@/components/ui/Grid';
 import { getQuestion, submitAnswer } from '@/lib/actions';
 import { useGameStore } from '@/store/gameStore';
+import { Question } from '@/lib/definitions';
 
 interface Props {
   steps: number[];
-}
-
-interface Question {
-  text: string;
-  options: { id: string; text: string }[];
-  requiredCount: number;
 }
 
 export function Game({ steps = [] }: Props) {

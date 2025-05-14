@@ -1,3 +1,4 @@
+import { AnswerState } from '@/lib/definitions';
 import styles from '@/components/AnswerButton.module.css';
 
 const colors = {
@@ -18,7 +19,7 @@ const colors = {
 interface Props {
   id: string;
   text: string;
-  state?: 'idle' | 'selected' | 'correct' | 'incorrect';
+  state?: AnswerState;
   onClick: (id: string) => void;
 }
 

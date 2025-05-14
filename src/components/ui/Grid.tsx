@@ -1,5 +1,4 @@
-type GapSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge' | 'xxlarge';
-type AlignItems = 'start' | 'center' | 'end' | 'stretch';
+import { GapSize, AlignItems } from '@/lib/definitions';
 
 interface GridProps {
   children: React.ReactNode;

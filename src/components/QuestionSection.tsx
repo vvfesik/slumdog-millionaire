@@ -1,12 +1,8 @@
 'use client';
 
 import { AnswerButton } from '@/components/AnswerButton';
+import { Option } from '@/lib/definitions';
 import styles from '@/components/QuestionSection.module.css';
-
-interface Option {
-  id: string;
-  text: string;
-}
 
 const defaultOptions: Option[] = [
   { id: 'a', text: '' },
