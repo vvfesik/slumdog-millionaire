@@ -1,11 +1,6 @@
-import styles from './RewardLadder.module.css';
-import { Step } from './Step';
-
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-  minimumFractionDigits: 0,
-});
+import { numberToUSD } from '@/lib/utils';
+import { Step } from '@/components/Step';
+import styles from '@/components/RewardLadder.module.css';
 
 function getStepState(index: number, currentStepIndex: number) {
   if (index < currentStepIndex) {
@@ -22,12 +17,12 @@ interface Props {
   steps: number[];
 }
 
-export function RewardLadder({ currentStepIndex = 1, steps = [500, 1000, 2000, 1000000] }: Props) {
+export function RewardLadder({ currentStepIndex = 0, steps = [] }: Props) {
   return (
     <div className={styles.section}>
       <ul className={styles.ladder}>
         {steps.map((value, index) => (
-          <Step key={value} as="li" state={getStepState(index, currentStepIndex)}>{formatter.format(value)}</Step>
+          <Step key={value} as="li" state={getStepState(index, currentStepIndex)}>{numberToUSD(value)}</Step>
         )).reverse()}
       </ul>
     </div>

@@ -14,6 +14,11 @@
   color: var(--color-text);
 }
 
+.info {
+  text-align: center;
+  margin-bottom: var(--gap-medium);
+}
+
 .options {
   display: flex;
   flex-direction: column;
@@ -30,5 +35,9 @@
   }
   .options button {
     margin-bottom: var(--gap-medium);
+  }
+
+  .container {
+    width: 810px;
   }
 }

@@ -1,17 +1,21 @@
 'use client';
 
+import { useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { useGameStore } from '@/store/gameStore';
 import { Grid, GridColumn } from '@/components/ui/Grid';
 import { Button } from '@/components/ui/Button';
 import { Headline } from '@/components/ui/Headline';
-import styles from '@/components/Intro.module.css';
+import { numberToUSD } from '@/lib/utils';
+import styles from '@/components/Result.module.css';
 
-export function Intro() {
+export function Result() {
   const router = useRouter();
   const reset = useGameStore((s) => s.reset);
+  const storeReward = useGameStore((s) => s.reward);
+  const reward = useMemo(() => storeReward, []);
 
-  const startTheGame = () => {
+  const restartTheGame = () => {
     reset();
     router.push('/game');
   };
@@ -29,10 +33,11 @@ export function Intro() {
         <GridColumn className={styles.columnContent}>
           <Grid smCols={2} isNestedGrid className="row-gap-xxlarge">
             <GridColumn span={2}>
-              <Headline>Who wants to be a&nbsp;millionaire?</Headline>
+              <p className={styles.text}>Total score:</p>
+              <Headline>{`${numberToUSD(reward)} earned`}</Headline>
             </GridColumn>
             <GridColumn className={styles.columnPlay}>
-              <Button className="full-width" onClick={startTheGame}>Play</Button>
+              <Button className="full-width" onClick={restartTheGame}>Try again</Button>
             </GridColumn>
           </Grid>
         </GridColumn>
@@ -40,4 +45,4 @@ export function Intro() {
     </div>
   );
 }
-export default Intro;
+export default Result;

@@ -1,4 +1,4 @@
-import styles from './Step.module.css';
+import styles from '@/components/Step.module.css';
 
 const colors = {
   idle: 'var(--color-border)',

@@ -1,0 +1,47 @@
+.page {
+  display: flex;
+  text-align: center;
+  background: linear-gradient(
+    to bottom right,
+    transparent 50%,
+    var(--color-orange-5) 50%
+  );
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.columnImage {
+  align-self: flex-end;
+}
+
+.columnContent {
+  align-self: flex-start;
+}
+
+.text {
+  font-size: var(--text-mobile-question);
+  line-height: var(--line-height-mobile-question);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--gap-small);
+  opacity: 0.5;
+}
+
+@media (width >= 576px) {
+  .page {
+    text-align: left;
+  }
+  .columnImage {
+    align-self: auto;
+  }
+  .columnContent {
+    align-self: auto;
+  }
+  .text {
+    font-size: var(--text-desktop-question);
+    line-height: var(--line-height-desktop-question);
+  }
+}
