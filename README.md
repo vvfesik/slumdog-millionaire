@@ -9,7 +9,7 @@ This project recreates the popular quiz show format where players answer increas
 ## Tech Stack
 
 - **Framework**: Next.js 15 with Turbopack
-- **Frontend**: React 19
+- **Frontend**: React 19, Zustand
 - **Language**: TypeScript
 - **Styling**: CSS Modules
 - **Linting**: ESLint with Airbnb config
@@ -87,13 +87,18 @@ npm run start
 ```
 slumdog-millionaire/
 ├── src/
-│   ├── app/           # App router components
-│   ├── components/    # Shared components
-│   ├── styles/        # CSS modules
-│   ├── types/         # TypeScript type definitions
-│   └── utils/         # Utility functions
-├── public/            # Static assets
-└── package.json       # Project dependencies
+│   ├── app/                     # App router pages
+│   ├── components/              # Shared components with collocated CSS modules
+│   ├── lib/
+│   │   ├── actions.ts           # Server actions
+│   │   ├── config.json          # Game configuration (questions, answers, etc.)
+│   │   ├── definitions.ts       # TypeScript definitions
+│   │   └── utils/               # Utility functions
+│   ├── store/                   # Zustand store
+│   └── styles/                  # Global styles and design tokens
+├── public/                      # Static assets
+├── package.json                 # Project dependencies
+└── style-dictionary.config.json # Config for design tokens generation
 ```
 
 ## Deployment
