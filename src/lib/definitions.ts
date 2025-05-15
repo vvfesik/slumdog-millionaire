@@ -16,8 +16,8 @@ export interface Question {
 
 export interface AnswerResult {
   isCorrect: boolean;
-  isFinished: boolean;
   correctAnswers: string[];
   incorrectAnswers: string[];
   reward: number;
+  nextQuestion: Question | null;
 }

@@ -1,5 +1,5 @@
 import { Game } from '@/components/Game';
-import { getRewards } from '@/lib/actions';
+import { getInitialGameData } from '@/lib/actions';
 
 const baseStyles = {
   backgroundColor: 'var(--color-bg-light)',
@@ -7,11 +7,11 @@ const baseStyles = {
 };
 
 export default async function GamePage() {
-  const steps = await getRewards();
+  const { question, rewards } = await getInitialGameData();
 
   return (
     <div style={baseStyles}>
-      <Game steps={steps} />
+      <Game steps={rewards} firstQuestion={question} />
     </div>
   );
 }

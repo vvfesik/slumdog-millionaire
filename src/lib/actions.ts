@@ -3,8 +3,13 @@
 import config from '@/lib/config.json';
 import { AnswerResult, Question } from '@/lib/definitions';
 
-export async function getRewards(): Promise<number[]> {
-  return config.questions.map((question) => question.reward);
+export async function getInitialGameData(): Promise<{ question: Question; rewards: number[] }> {
+  const rewards = config.questions.map((question) => question.reward);
+
+  const { correctAnswers, ...safeToExpose } = config.questions[0];
+  const requiredCount = correctAnswers.length;
+
+  return { question: { ...safeToExpose, requiredCount }, rewards };
 }
 
 export async function getQuestion(index: number): Promise<Question> {
@@ -30,9 +35,9 @@ export async function submitAnswer(index: number, answerIDs: string[]): Promise<
   const incorrectAnswers = [...answerSet].filter((id) => !correctSet.has(id));
   const correctAnswers = [...correctSet];
 
-  const isFinished = index === config.questions.length - 1;
+  const nextQuestion = index === config.questions.length - 1 ? null : await getQuestion(index + 1);
 
   return {
-    isCorrect, isFinished, correctAnswers, incorrectAnswers, reward: question.reward,
+    isCorrect, correctAnswers, incorrectAnswers, reward: question.reward, nextQuestion,
   };
 }

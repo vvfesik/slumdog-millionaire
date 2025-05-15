@@ -7,32 +7,29 @@ import { RewardLadder } from '@/components/RewardLadder';
 import { Grid, GridColumn } from '@/components/ui/Grid';
 import { CloseIcon } from '@/components/ui/CloseIcon';
 import { MenuIcon } from '@/components/ui/MenuIcon';
-import { getQuestion, submitAnswer } from '@/lib/actions';
+import { submitAnswer } from '@/lib/actions';
 import { useGameStore } from '@/store/gameStore';
 import { Question } from '@/lib/definitions';
 import styles from '@/components/Game.module.css';
 
 interface Props {
   steps: number[];
+  firstQuestion: Question;
 }
 
-export function Game({ steps = [] }: Props) {
+export function Game({ steps = [], firstQuestion }: Props) {
   const [isRewardsMenuVisible, setRewardsMenuVisible] = useState(false);
   const currentIndex = useGameStore((s) => s.currentIndex);
   const isFinished = useGameStore((s) => s.isFinished);
   const next = useGameStore((s) => s.next);
   const router = useRouter();
-  const [question, setQuestion] = useState<Question | null>(null);
+  const [question, setQuestion] = useState<Question | null>(firstQuestion);
   const [selected, setSelected] = useState<string[]>([]);
   const [{ correct, incorrect }, setResults] = useState<{
     correct: string[];
     incorrect: string[];
   }>({ correct: [], incorrect: [] });
   const [isSubmitting, startTransition] = useTransition();
-
-  useEffect(() => {
-    getQuestion(currentIndex).then(setQuestion).catch(() => setQuestion(null));
-  }, [currentIndex]);
 
   useEffect(() => {
     if (isFinished) {
@@ -47,17 +44,18 @@ export function Game({ steps = [] }: Props) {
       startTransition(async () => {
         const {
           isCorrect,
-          isFinished: newIsFinished,
           correctAnswers,
           incorrectAnswers,
           reward: newReward,
+          nextQuestion,
         } = await submitAnswer(currentIndex, [...selected, id]);
         setResults({ correct: correctAnswers, incorrect: incorrectAnswers });
         setSelected([]);
         await new Promise((resolve) => { setTimeout(resolve, 500); });
         setResults({ correct: [], incorrect: [] });
-        if (isCorrect || newIsFinished) {
-          next(newReward, newIsFinished);
+        if (isCorrect) {
+          setQuestion((prev) => nextQuestion ?? prev);
+          next(newReward, !nextQuestion);
         } else {
           router.push('/result');
         }
