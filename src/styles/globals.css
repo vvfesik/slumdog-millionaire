@@ -89,3 +89,19 @@ a {
 .full-width {
   width: 100%;
 }
+
+@keyframes animate-pulse {
+  0% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+.animate-pulse {
+  animation: animate-pulse 1s infinite;
+}

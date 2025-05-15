@@ -1,3 +1,9 @@
+@keyframes bounceZoom {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 .button {
   position: relative;
   display: flex;
@@ -27,6 +33,10 @@
   stroke: var(--color-primary);
 }
 
+.button[data-state="correct"] {
+  animation: bounceZoom 0.5s ease-out forwards;
+}
+
 .text {
   color: var(--foreground);
   z-index: 10;
@@ -40,6 +50,14 @@
   color: var(--color-primary);
   font-weight: var(--font-weight-bold);
   margin-right: var(--gap-small);
+}
+
+.placeholder {
+  display: inline-block;
+  width: 30%;
+  height: 0.9rem;
+  background: var(--color-border);
+  border-radius: var(--border-radius-sm);
 }
 
 @media (min-width: 768px) {

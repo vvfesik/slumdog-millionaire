@@ -5,10 +5,10 @@ import { Option } from '@/lib/definitions';
 import styles from '@/components/QuestionSection.module.css';
 
 const defaultOptions: Option[] = [
-  { id: 'a', text: '' },
-  { id: 'b', text: '' },
-  { id: 'c', text: '' },
-  { id: 'd', text: '' },
+  { id: 'a', text: undefined! },
+  { id: 'b', text: undefined! },
+  { id: 'c', text: undefined! },
+  { id: 'd', text: undefined! },
 ];
 
 interface Props {
@@ -22,7 +22,7 @@ interface Props {
 }
 
 export function QuestionSection({
-  question = '',
+  question,
   options = defaultOptions,
   requiredCount = 1,
   onAnswer,
@@ -39,7 +39,11 @@ export function QuestionSection({
 
   return (
     <div className={styles.section}>
-      <h1 className={styles.question}>{question}</h1>
+      {question ? (
+        <h1 className={styles.question}>{question}</h1>
+      ) : (
+        <div className={`animate-pulse ${styles.placeholder}`} />
+      )}
       <div className={styles.container}>
         {requiredCount > 1 && (
           <p className={styles.info}>{`Select ${requiredCount} options`}</p>

@@ -34,7 +34,7 @@ export function AnswerButton({
       </svg>
       <span className={styles.text}>
         <strong>{id}</strong>
-        {text}
+        {text || <span className={`animate-pulse ${styles.placeholder}`} />}
       </span>
     </button>
   );

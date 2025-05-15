@@ -31,6 +31,13 @@
   margin-bottom: var(--gap-small);
 }
 
+.placeholder {
+  width: 50%;
+  height: var(--line-height-mobile-question);
+  background: var(--color-border);
+  border-radius: var(--border-radius-md);
+}
+
 @media (min-width: 768px) {
   .question {
     font-size: var(--text-desktop-question);
@@ -47,6 +54,9 @@
   .options button {
     margin-bottom: var(--gap-medium);
   }
+  .placeholder {
+  height: var(--line-height-desktop-question);
+}
 }
 
 @media (min-width: 1024px) {

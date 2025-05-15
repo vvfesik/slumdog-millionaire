@@ -28,7 +28,7 @@ export function Game({ steps = [] }: Props) {
     correct: string[];
     incorrect: string[];
   }>({ correct: [], incorrect: [] });
-  const [, startTransition] = useTransition();
+  const [isSubmitting, startTransition] = useTransition();
 
   useEffect(() => {
     getQuestion(currentIndex).then(setQuestion).catch(() => setQuestion(null));
@@ -41,7 +41,7 @@ export function Game({ steps = [] }: Props) {
   }, [isFinished, router]);
 
   const handleAnswer = (id: string) => {
-    if (!question) return;
+    if (!question || isSubmitting) return;
 
     if (question.requiredCount === 1 || selected.length === question.requiredCount - 1) {
       startTransition(async () => {
